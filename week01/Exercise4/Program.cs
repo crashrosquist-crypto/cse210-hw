@@ -14,7 +14,7 @@ class Program
 
         while (guess != 0)
         {
-            Console.WriteLine("Enter A number ");
+            Console.WriteLine("Enter A number: ");
             string response = Console.ReadLine();
             guess = int.Parse(response);
 
