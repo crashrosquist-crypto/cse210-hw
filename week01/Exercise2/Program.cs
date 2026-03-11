@@ -46,6 +46,16 @@ class Program
             sign = "";
         }
 
+        if (letter == "A" && sign == "+")
+        {
+            sign = "";
+        }
+
+        if (letter == "F")
+        {
+            sign = "";
+        }
+
         Console.WriteLine($"Your grade is {letter}{sign}");
         
         if (grade >= 70.0)
