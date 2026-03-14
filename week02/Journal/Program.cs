@@ -4,10 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Journal Project.");
 
         Journal theJournal = new Journal();
+        PromptGenerator promptGenerator = new PromptGenerator();
         string userChoice = "";
+        Console.WriteLine("Welcome to the Journal Program.");
         while (userChoice != "5")
         {
             Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit");
@@ -16,7 +17,7 @@ class Program
 
             if (userChoice == "1")
             {
-                string prompt = "What is the best part of my day?";
+                string prompt = promptGenerator.GetRandomPrompt();
                 Console.WriteLine(prompt);
 
                 Console.Write("> ");
@@ -41,6 +42,12 @@ class Program
                 Console.WriteLine("What is the filename?");
                 string filename = Console.ReadLine();
                 theJournal.LoadFromFile(filename);
+            }
+            else if (userChoice=="4")
+            {
+                Console.WriteLine("What is the filename?");
+                string filename = Console.ReadLine();
+                theJournal.SaveToFile(filename);
             }
         }
     }
