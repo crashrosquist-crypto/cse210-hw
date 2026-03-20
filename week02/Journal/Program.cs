@@ -43,7 +43,7 @@ class Program
                 string filename = Console.ReadLine();
                 theJournal.LoadFromFile(filename);
             }
-            else if (userChoice=="4")
+            else if (userChoice == "4")
             {
                 Console.WriteLine("What is the filename?");
                 string filename = Console.ReadLine();
