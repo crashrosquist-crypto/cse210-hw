@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 public class Order
 {
@@ -34,5 +35,20 @@ public class Order
         }
 
         return total;
+    }
+
+    public string GetPackingLabel()
+    {
+        string label = "| Packing Label |\n";
+        foreach (Product product in _products)
+        {
+            label += $"{product.GetName()} - {product.GetProductId()}\n";
+        }
+        return label;
+    }
+
+    public string GetShippingLabel()
+    {
+        return $"| Shipping Label | \n{_customer.GetName()}\n{_customer.GetAddress().GetFullAddress()}";
     }
 }
