@@ -9,6 +9,31 @@ public class ListingActivity : Activity
         _count = 0;
     }
 
+    public void Run()
+    {
+        DisplayStartingMessage();
+
+        Console.WriteLine("\nList as many responses as you can to the following prompt:");
+        Console.WriteLine($"{GetRandomPrompt()}");
+        Console.Write("You may begin in: ");
+        ShowCountDown(5);
+        Console.WriteLine();
+
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_duration);
+
+        Console.WriteLine("Press enter after each item. The activity will stop after your next entry once time is up!");
+        while (DateTime.Now < endTime)
+        {
+            Console.Write("> ");
+            Console.ReadLine();
+            _count++;
+        }
+
+        Console.WriteLine($"You listed {_count} items!");
+        DisplayEndingMessage();
+    }
+
     public string GetRandomPrompt()
     {
         List<string> _prompts = new List<string>
@@ -23,6 +48,6 @@ public class ListingActivity : Activity
         Random random = new Random();
         int index = random.Next(_prompts.Count);
         return _prompts[index];
-        
+
     }
 }

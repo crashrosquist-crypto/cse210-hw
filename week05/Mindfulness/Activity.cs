@@ -18,8 +18,15 @@ public class Activity
     {
         Console.Clear();
         Console.WriteLine($"Welcome to the {_name}.\n");
-        onsole.WriteLine($"{_description}\n");
+        Console.WriteLine($"{_description}\n");
         Console.Write("How long, in seconds, would you like for your session? ");
+
+        string input = Console.ReadLine();
+        _duration = int.Parse(input);
+
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinner(3);
     }
 
     public void DisplayEndingMessage()

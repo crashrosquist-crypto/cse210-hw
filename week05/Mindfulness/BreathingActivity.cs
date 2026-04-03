@@ -23,6 +23,22 @@ public class BreathingActivity : Activity
             Console.Write("\nBreathe out...");
             ShowCountDown(6);
             Console.WriteLine();
+
+            Console.WriteLine();
+            Console.Write("Breathe in...");
+            ShowCountDown(4);
+
+            Console.Write("\nBreathe out...");
+            ShowCountDown(6);
+            Console.WriteLine();
+
+            Console.WriteLine();
+            Console.Write("Breathe in...");
+            ShowCountDown(4);
+
+            Console.Write("\nBreathe out...");
+            ShowCountDown(6);
+            Console.WriteLine();
         }
 
         DisplayEndingMessage();
