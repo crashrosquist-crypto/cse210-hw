@@ -1,7 +1,8 @@
 namespace EternalQuest;
+
 using System;
 
-public class ChecklistGoal : global
+public class ChecklistGoal : Goal
 {
     protected int _amountCompleted;
     protected int _target;
@@ -9,12 +10,12 @@ public class ChecklistGoal : global
 
     public ChecklistGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
     {
-        
+
     }
 
     public override void RecordEvent()
     {
-        
+
     }
 
     public override bool IsComplete()
@@ -28,9 +29,9 @@ public class ChecklistGoal : global
     }
 
     public override string GetDetailsString()
-{
-    string statusSymbol = IsComplete() ? "X" : " ";
-    
-    return $"[{statusSymbol}] {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
-}
+    {
+        string statusSymbol = IsComplete() ? "X" : " ";
+
+        return $"[{statusSymbol}] {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
+    }
 }

@@ -1,17 +1,11 @@
-namespace EternalQuest;
 using System;
-using System.Collections.Generic;
+namespace EternalQuest;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the EternalQuest Project.");
-
-        List<Goal> goals = new List<Goal>()
-        {
-            new SimpleGoal("Crashtopher", "Finish Homework", 1000)
-
-        };
+        GoalManager manager = new GoalManager();
+        manager.Start();
     }
 }
