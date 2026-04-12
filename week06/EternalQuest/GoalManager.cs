@@ -90,17 +90,9 @@ public class GoalManager
 
         Goal goal = _goals[index];
         
-        // Checklist logic for bonus
         int pointsEarned = 0;
         
-        // We need to handle points here because the base Goal class 
-        // doesn't store state for the manager easily.
-        // For a simple version, we'll assume the goal knows its points.
         goal.RecordEvent();
-        
-        // Note: In your actual Goal classes, you'd want a GetPoints() method.
-        // For now, let's assume a standard point gain.
-        _score += 100; // Placeholder: Ideally use goal._points;
         
         Console.WriteLine($"Congratulations! You have earned points!");
         Console.WriteLine($"You now have {_score} points.");
@@ -139,7 +131,7 @@ public class GoalManager
             if (type == "SimpleGoal")
             {
                 SimpleGoal sg = new SimpleGoal(data[0], data[1], int.Parse(data[2]));
-                if (bool.Parse(data[3])) sg.RecordEvent(); // Set to complete if it was saved that way
+                if (bool.Parse(data[3])) sg.RecordEvent();
                 _goals.Add(sg);
             }
             else if (type == "EternalGoal")
@@ -148,8 +140,6 @@ public class GoalManager
             }
             else if (type == "ChecklistGoal")
             {
-                // Reconstruct the checklist goal with its saved progress
-                // Data: Name, Desc, Points, Bonus, Target, CurrentCount
                 _goals.Add(new ChecklistGoal(data[0], data[1], int.Parse(data[2]), int.Parse(data[4]), int.Parse(data[3])));
             }
         }
